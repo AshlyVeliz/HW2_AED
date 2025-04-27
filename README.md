@@ -139,5 +139,5 @@ T pop_back() {
     }
     delete aux;
     return ret;
-}
+} 
 ```
