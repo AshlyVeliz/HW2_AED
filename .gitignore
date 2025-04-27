@@ -1,0 +1,42 @@
+# Entorno
+.env
+*.local
+
+# Dependencias
+node_modules/
+vendor/
+.venv/
+
+# Builds
+dist/
+build/
+out/
+*.class
+*.exe
+*.o
+*.pyc
+
+# Configuración de editores
+.vscode/
+.idea/
+.sublime-
+
+# Sistema operativo
+Thumbs.db
+.DS_Store
+
+# Logs
+.log
+.idea
+# ---------- CMake artefacts ----------
+cmake-build-debug/        # ignora todo el dir
+!cmake-build-debug/.gitignore   # …excepto su propio .gitignore
+CMakeFiles/            # ignora todo el dir
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+CTestTestfile.cmake
+# ---------- Visual Studio artefacts ----------
+.vs/
+*.sln
+*.suo
