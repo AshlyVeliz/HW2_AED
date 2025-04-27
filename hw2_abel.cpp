@@ -46,13 +46,13 @@ public:
 
     T front() {
         // Implementar: Retorna el primer elemento
-        if (empty()) return head->val;
+        if (!empty()) return head->val;
         return;
     }
 
     T back() {
         // Implementar: Retorna el último elemento
-        if (empty()){
+        if (!empty()){
             return head->prev->val;
         }
         
@@ -63,9 +63,9 @@ public:
         Node* aux = new Node(val);
         if(empty()){
             head = aux;
-            //why do i need to do it if the constructor actually sets the next and prev as null
-            head->next= nullptr;
-            head->prev=nullptr;
+            tail = aux;
+            aux ->next = aux;
+            aux->prev = aux;
         }
         else{
             aux->next = head;
