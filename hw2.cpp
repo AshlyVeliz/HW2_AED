@@ -130,17 +130,66 @@ public:
 
     void insert(T val, int index) {
         // Implementar: Inserta elemento en posición indicada
+        if (index < 0 || index > size()) {
+            cout << "Indice fuera de rango." << endl;
+            return;
+        }
+        if (index == 0) {
+            push_front(val);
+            return;
+        }
+        if (index == size()) {
+            push_back(val);
+            return;
+        }
+        Node* newNode = new Node(val);
+        Node* current = head;
+        for (int i = 0; i < index - 1; i++) {
+            current = current->next;
+        }
+        newNode->next = current->next;
+        newNode->prev = current;
+        current->next->prev = newNode;
+        current->next = newNode;
+
     }
 
     void remove(int index) {
         // Implementar: Elimina elemento en posición indicada
+        if (index < 0 || index >= size()) {
+            cout << "Indice fuera de rango." << endl;
+            return;
+        }
+        if (index == 0) {
+            pop_front();
+            return;
+        }
+        if (index == size() - 1) {
+            pop_back();
+            return;
+        }
+        Node* current = head;
+        for (int i = 0; i < index; i++) {
+            current = current->next;
+        }
+        current->prev->next = current->next;
+        current->next->prev = current->prev;
+        delete current;
     }
 
     T operator[](int index) {
         // Implementar: Acceso a elemento por índice
+        if (index < 0 || index >= size()) {
+            cout << "Indice fuera de rango." << endl;
+            exit(1);
+        }
+
+        Node* current = head;
+        for (int i = 0; i < index; i++) {
+            current = current->next;
+        }
+        return current->data;
     }
 
-    void reverse() {
-        // Implementar: Invierte el orden de la lista
-    }
+
 };
